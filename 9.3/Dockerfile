@@ -2,7 +2,7 @@
 FROM debian:wheezy
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r postgres && useradd -r -g postgres postgres
+RUN groupadd -r postgres && useradd -r -g postgres -u 1000 postgres
 
 # grab gosu for easy step-down from root
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/* \
